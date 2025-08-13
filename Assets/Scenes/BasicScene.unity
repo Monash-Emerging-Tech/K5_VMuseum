@@ -401,6 +401,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &783116045
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6576254255561389964, guid: 30bd1c1de97068040ab5810d485c7d1f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.12676656
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576254255561389964, guid: 30bd1c1de97068040ab5810d485c7d1f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.508
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576254255561389964, guid: 30bd1c1de97068040ab5810d485c7d1f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.179
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576254255561389964, guid: 30bd1c1de97068040ab5810d485c7d1f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576254255561389964, guid: 30bd1c1de97068040ab5810d485c7d1f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576254255561389964, guid: 30bd1c1de97068040ab5810d485c7d1f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576254255561389964, guid: 30bd1c1de97068040ab5810d485c7d1f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576254255561389964, guid: 30bd1c1de97068040ab5810d485c7d1f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576254255561389964, guid: 30bd1c1de97068040ab5810d485c7d1f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576254255561389964, guid: 30bd1c1de97068040ab5810d485c7d1f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604251391838578939, guid: 30bd1c1de97068040ab5810d485c7d1f, type: 3}
+      propertyPath: m_Name
+      value: RobotDog (Bambi)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 30bd1c1de97068040ab5810d485c7d1f, type: 3}
 --- !u!1001 &1217481844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1034,3 +1091,4 @@ SceneRoots:
   - {fileID: 1249100635}
   - {fileID: 1217481844}
   - {fileID: 1524870412}
+  - {fileID: 783116045}
