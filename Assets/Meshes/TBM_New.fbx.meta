@@ -1,0 +1,284 @@
+fileFormatVersion: 2
+guid: 96ec960b9c2641244b8bf85e3d6a708f
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: White-PW-MT11050
+    second: {fileID: 2100000, guid: e67a59356ecdc9a41bdcb063a4fa61b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brushed nickel
+    second: {fileID: 2100000, guid: 8fb870bf0b7f0f147a9bbacb9dbb1798, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brushed nickel-2
+    second: {fileID: 2100000, guid: cb35efb522f12a34ebb87ab7e2fb029a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color
+    second: {fileID: 2100000, guid: 4d0572e6d1025584a9a9a6239669051d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color(Legacy)
+    second: {fileID: 2100000, guid: f6ad7b4d476769044a5b5cfce23f6709, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color-15
+    second: {fileID: 2100000, guid: 5edcad447bdeb4b4b94efab5eb25d429, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color-2
+    second: {fileID: 2100000, guid: b7cbbedd51c5206468617a28eda8c0c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color-22
+    second: {fileID: 2100000, guid: 1c4029ac38423df44b71deb138e5573f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color-25
+    second: {fileID: 2100000, guid: 3033e644efdc20540accb6b29a845a3d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color-29
+    second: {fileID: 2100000, guid: 7b84e28354c4c724dacfa904e82dfa78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color-3 (Cosmetic Thread)
+    second: {fileID: 2100000, guid: f4fff67392d82b7459a6bbad7da947d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color-30
+    second: {fileID: 2100000, guid: 05aa4a8a12f879e43982db6d8898bdb4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color-31
+    second: {fileID: 2100000, guid: 83cb82e83a9464f4ab87ccb27a1bad5f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color-34
+    second: {fileID: 2100000, guid: 01eb75cc509071544affb95c5c2f5cb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color-35
+    second: {fileID: 2100000, guid: ed6ddf36bcf79de4782d69288a831439, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color-36
+    second: {fileID: 2100000, guid: 75c2e8b6fb41a0f4f87fde47917fe1e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color-37
+    second: {fileID: 2100000, guid: a4d2b829d28e07b418565ec2c6fee264, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glossy rubber
+    second: {fileID: 2100000, guid: 36d23a9e87eafe94aab87b39b115093d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: light grey low gloss plastic
+    second: {fileID: 2100000, guid: 8e07f2f156f7c9e45b62838e5370ca4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matte steel
+    second: {fileID: 2100000, guid: f1f4c8c08d9b37149831cefafc2cd412, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matte steel-2
+    second: {fileID: 2100000, guid: 5425bd325e6bd494db6841084dd44d72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matte steel-2 (Cosmetic Thread)
+    second: {fileID: 2100000, guid: 9a49055951470784ca50c5280d2b17ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matte steel-3
+    second: {fileID: 2100000, guid: 5982752e4b03b7f4791adfddedbd78cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matte steel-4
+    second: {fileID: 2100000, guid: 3f3c7783b506f3d4e8257139c546fe9f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matte steel-5
+    second: {fileID: 2100000, guid: 131c44b5f6732314a94ba77055c106c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matte steel-6
+    second: {fileID: 2100000, guid: b687222771547114aaed08a7f2948d82, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matte steel-7
+    second: {fileID: 2100000, guid: 62118f373c24faa419d0b33f23996ead, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matte steel-8
+    second: {fileID: 2100000, guid: f864c4911a753dd49b2ffa182cc0bb72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matte steel-8 (Cosmetic Thread)
+    second: {fileID: 2100000, guid: 26290562b8d36b84d9033a352880ebf1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matte steel-9
+    second: {fileID: 2100000, guid: 30f2d78f5f604d54790922bb56a5b50a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: polished steel
+    second: {fileID: 2100000, guid: 1d2dbf88071660340b4ab8bd1fd3a9c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: polished steel-2
+    second: {fileID: 2100000, guid: 8ab874460c00f3c43b11fe3b8877b573, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: satin finish aluminum
+    second: {fileID: 2100000, guid: a5f5446d32d13434c95b470eca229d51, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: white high gloss plastic
+    second: {fileID: 2100000, guid: f6361020b27c1fc4f8eedfff345c3e85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: white-pw-mt11050
+    second: {fileID: 2100000, guid: 41a7af4c76cbbc44197c1ed61d990cd0, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1300
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1300
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

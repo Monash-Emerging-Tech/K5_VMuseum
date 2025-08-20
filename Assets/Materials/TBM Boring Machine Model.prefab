@@ -1,0 +1,412 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5836106452654169004
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.26
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.02
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.79
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8437278624571176271, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8267125209157008460, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Lining Deployment System Housing
+      objectReference: {fileID: 0}
+    - target: {fileID: -8044410031536263460, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4d0572e6d1025584a9a9a6239669051d, type: 2}
+    - target: {fileID: -8042536953555789488, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Lining Pusher
+      objectReference: {fileID: 0}
+    - target: {fileID: -7938276646143921641, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d1c68d4e328141747bde9ae90a1170b6, type: 2}
+    - target: {fileID: -7924681474802850081, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Stewart Platform Linear Actuators Housing
+      objectReference: {fileID: 0}
+    - target: {fileID: -7924681474802850081, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7613813030736844325, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Lining Deployment System Servo Motor
+      objectReference: {fileID: 0}
+    - target: {fileID: -7514091714026471788, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6772461740be5c041babb77c1fc1b5a8, type: 2}
+    - target: {fileID: -7405226957001845270, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Lining Deployment System Servo Power Wire Orange
+      objectReference: {fileID: 0}
+    - target: {fileID: -7381485319409738779, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Misc Welds 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7381485319409738779, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7176574064794734180, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Lining Deployment Support Plate
+      objectReference: {fileID: 0}
+    - target: {fileID: -7012761806330448712, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Plate 1 holes
+      objectReference: {fileID: 0}
+    - target: {fileID: -7012761806330448712, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6605440448192694338, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Lining Deployment System Servo Power Wire Red
+      objectReference: {fileID: 0}
+    - target: {fileID: -6151612187053216240, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Excavation Chamber 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6151612187053216240, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6068063164638076441, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Gear Housing (Cutter Head) Holes 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6068063164638076441, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5159493593141152643, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b7cbbedd51c5206468617a28eda8c0c5, type: 2}
+    - target: {fileID: -5149997015901313009, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e07f2f156f7c9e45b62838e5370ca4a, type: 2}
+    - target: {fileID: -4480834773460290847, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Excavation Chamber 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4480834773460290847, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4176730621875666330, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Cutter Head Main Gears
+      objectReference: {fileID: 0}
+    - target: {fileID: -4176730621875666330, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2166554519781927896, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Cutter Head Support Plate 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2166554519781927896, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2016019849766965004, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Cutter Head Support Plate 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -2016019849766965004, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1459301305759598431, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Lining Deployment System Servo Power Wiring Internals
+      objectReference: {fileID: 0}
+    - target: {fileID: -1134449577703325010, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6772461740be5c041babb77c1fc1b5a8, type: 2}
+    - target: {fileID: -946640087644204650, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: 'Cutter Head Skin '
+      objectReference: {fileID: 0}
+    - target: {fileID: -946640087644204650, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 51116577061622604, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Cutter Head Gear
+      objectReference: {fileID: 0}
+    - target: {fileID: 51116577061622604, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 78505638393871393, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8fb870bf0b7f0f147a9bbacb9dbb1798, type: 2}
+    - target: {fileID: 110680154611679708, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6772461740be5c041babb77c1fc1b5a8, type: 2}
+    - target: {fileID: 312354172420507596, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Plate 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 312354172420507596, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 627349225807978209, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6772461740be5c041babb77c1fc1b5a8, type: 2}
+    - target: {fileID: 919132149155446097, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: TBM Boring Machine Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669299809862917610, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Stewart Platform Linear Actuator Pistons
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669299809862917610, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871646349789625566, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Stepper Motors
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871646349789625566, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811575237997079584, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Lining Deployment Motors
+      objectReference: {fileID: 0}
+    - target: {fileID: 3264602088380500463, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3284498293743992701, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Lining Deployment System Deplyment Gear
+      objectReference: {fileID: 0}
+    - target: {fileID: 3325434161182094779, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Gear Housing (Cutter Head) Holes
+      objectReference: {fileID: 0}
+    - target: {fileID: 3325434161182094779, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3612687919284105231, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6772461740be5c041babb77c1fc1b5a8, type: 2}
+    - target: {fileID: 3755850221841097614, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Stewart Platform Linear Actuators
+      objectReference: {fileID: 0}
+    - target: {fileID: 3755850221841097614, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106999104621901321, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Misc Welds
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106999104621901321, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4533640101498444880, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Lining Deployment System Servo Drive Gear
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629018952399054856, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Cutter Head Support Gear Holes
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629018952399054856, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691314192161076484, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 67a27a3af66ce18418f69d8be7806b30, type: 2}
+    - target: {fileID: 5077891110950952511, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4d0572e6d1025584a9a9a6239669051d, type: 2}
+    - target: {fileID: 5744689948013752736, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Excavation Chamber Gasket
+      objectReference: {fileID: 0}
+    - target: {fileID: 5744689948013752736, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915487405989374427, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: 'Lining Deployment System Servo Power Wire - Yellow '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054278459901474840, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6772461740be5c041babb77c1fc1b5a8, type: 2}
+    - target: {fileID: 6801696990942293453, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Cutter Head Support Gear
+      objectReference: {fileID: 0}
+    - target: {fileID: 6801696990942293453, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7245396177223683187, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6772461740be5c041babb77c1fc1b5a8, type: 2}
+    - target: {fileID: 7375240217042458920, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Lining Deployment Motor Adaptor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822681962806371585, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Cutter Head Gear housing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822681962806371585, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7831904703799353494, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Cutter Head Support Head
+      objectReference: {fileID: 0}
+    - target: {fileID: 7831904703799353494, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880415998448151207, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Lining Deployment Segments
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224441004249500699, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Cutter Head
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224441004249500699, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225109841688824250, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      propertyPath: m_Name
+      value: Lining Deployment System Servo Labels
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7189249985714283644}
+  m_SourcePrefab: {fileID: 100100000, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+--- !u!1 &6647148347295278845 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 96ec960b9c2641244b8bf85e3d6a708f, type: 3}
+  m_PrefabInstance: {fileID: 5836106452654169004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7189249985714283644
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6647148347295278845}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dee8058b88c23a34daf6eec1c846e313, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
