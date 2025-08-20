@@ -1611,7 +1611,7 @@ MonoBehaviour:
   stepSize: 0.01
   stepPeriod: 1
   returnSpeed: 2
-  endOffset: 0.5
+  endOffset: 0.4
 --- !u!1001 &1639935305
 PrefabInstance:
   m_ObjectHideFlags: 0
