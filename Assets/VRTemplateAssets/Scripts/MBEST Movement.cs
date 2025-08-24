@@ -14,11 +14,22 @@ public class WormMovement2 : MonoBehaviour
     [Tooltip("Time to pause between steps (seconds)")]
     public float pauseTime = 0.2f;
 
+    [Tooltip("Time to wait before starting movement after input (seconds)")]
+    public float inputStartDelay = 1f;
+
+    [Tooltip("Key to trigger worm movement")]
+    public KeyCode startKey = KeyCode.Space;
+
     private Vector3 startPosition;
     private Vector3 targetPosition;
     private float stepProgress = 0f;
-    private bool isMoving = true;
+    private bool isMoving = false;
     private float pauseTimer = 0f;
+
+    // Input-based delay handling
+    private bool waitingForInput = true;
+    private bool waitingInitialDelay = false;
+    private float initialDelayTimer = 0f;
 
     void Start()
     {
@@ -28,10 +39,36 @@ public class WormMovement2 : MonoBehaviour
 
     void Update()
     {
+        // --- Waiting for player input ---
+        if (waitingForInput)
+        {
+            if (Input.GetKeyDown(startKey))
+            {
+                waitingForInput = false;
+                waitingInitialDelay = true;
+                initialDelayTimer = 0f;
+            }
+            return; // don’t move until input is pressed
+        }
+
+        // --- Waiting the one-time initial delay ---
+        if (waitingInitialDelay)
+        {
+            initialDelayTimer += Time.deltaTime;
+            if (initialDelayTimer >= inputStartDelay)
+            {
+                waitingInitialDelay = false;
+                isMoving = true; // start movement
+                stepProgress = 0f;
+            }
+            return; // skip until delay finishes
+        }
+
+        // --- Normal movement cycle ---
         if (isMoving)
         {
             // Move towards target position
-            stepProgress += speed * Time.deltaTime / stepLength; // normalized 0..1
+            stepProgress += speed * Time.deltaTime / stepLength;
             transform.position = Vector3.Lerp(startPosition, targetPosition, stepProgress);
 
             if (stepProgress >= 1f)
