@@ -280,8 +280,8 @@ MonoBehaviour:
   m_UVBias: {x: -0.000000049921685, y: 0}
   m_DecalLayerMask: 1
   m_ScaleMode: 0
-  m_Offset: {x: 0.13793764, y: -0.19377607, z: 0.19777107}
-  m_Size: {x: 0.5879643, y: 1.6039492, z: 1.5955517}
+  m_Offset: {x: 0.13793764, y: -0.19377607, z: -0.2075072}
+  m_Size: {x: 0.5879643, y: 1.6039492, z: 0.008334219}
   m_FadeFactor: 1
 --- !u!1 &7689909306337527079
 GameObject:
@@ -407,13 +407,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8676138897083317944}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.92387956, z: 0.38268343, w: 0}
-  m_LocalPosition: {x: 0.01761, y: 0.01719, z: 0.011}
+  m_LocalRotation: {x: 0, y: 0.9702958, z: 0.2419218, w: 0}
+  m_LocalPosition: {x: 0.01761, y: 0.01752, z: 0.0109}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 409084485265744486}
-  m_LocalEulerAnglesHint: {x: -45, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: -28, y: 180, z: 0}
 --- !u!114 &3170918800165325471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,11 +432,11 @@ MonoBehaviour:
   m_StartAngleFade: 180
   m_EndAngleFade: 180
   m_UVScale: {x: 1, y: 1}
-  m_UVBias: {x: 0, y: 0}
+  m_UVBias: {x: 0, y: -0.000000027182647}
   m_DecalLayerMask: 1
   m_ScaleMode: 0
-  m_Offset: {x: -0.020480439, y: 0.021118462, z: 0.15096247}
-  m_Size: {x: 0.9460405, y: 0.54818654, z: 0.19807506}
+  m_Offset: {x: -0.020478964, y: 0.035880208, z: 0.10691937}
+  m_Size: {x: 0.9460405, y: 0.54818654, z: 0.008613899}
   m_FadeFactor: 1
 --- !u!1 &9002554340094341642
 GameObject:
