@@ -5,7 +5,6 @@ using UnityEngine;
 public class GCodePlayer_X : MonoBehaviour
 {
     private Transform toolHead;
-    public float scale = 0.1f;
     public Vector3 originOffset = Vector3.zero;
 
     [Tooltip("Maximum distance along X the part can move from its starting (leftmost) position")]
@@ -13,58 +12,29 @@ public class GCodePlayer_X : MonoBehaviour
 
     private Vector3 origin;
 
-    // Single-layer filled square G-code
+    // Full G-code with X/Y/Z, F etc.
     private string[] originalGCode = new string[]
-        {
-        "G1 X0 Y0 Z0.3 F1500",
-        "G1 X100 Y0 Z0.3 F1500",
-        "G1 X100 Y5 Z0.3 F1500",
-        "G1 X0 Y5 Z0.3 F1500",
-        "G1 X0 Y10 Z0.3 F1500",
-        "G1 X100 Y10 Z0.3 F1500",
-        "G1 X100 Y15 Z0.3 F1500",
-        "G1 X0 Y15 Z0.3 F1500",
-        "G1 X0 Y20 Z0.3 F1500",
-        "G1 X100 Y20 Z0.3 F1500",
-        "G1 X100 Y25 Z0.3 F1500",
-        "G1 X0 Y25 Z0.3 F1500",
-        "G1 X0 Y30 Z0.3 F1500",
-        "G1 X100 Y30 Z0.3 F1500",
-        "G1 X100 Y35 Z0.3 F1500",
-        "G1 X0 Y35 Z0.3 F1500",
-        "G1 X0 Y40 Z0.3 F1500",
-        "G1 X100 Y40 Z0.3 F1500",
-        "G1 X100 Y45 Z0.3 F1500",
-        "G1 X0 Y45 Z0.3 F1500",
-        "G1 X0 Y50 Z0.3 F1500",
-        "G1 X100 Y50 Z0.3 F1500",
-        "G1 X100 Y55 Z0.3 F1500",
-        "G1 X0 Y55 Z0.3 F1500",
-        "G1 X0 Y60 Z0.3 F1500",
-        "G1 X100 Y60 Z0.3 F1500",
-        "G1 X100 Y65 Z0.3 F1500",
-        "G1 X0 Y65 Z0.3 F1500",
-        "G1 X0 Y70 Z0.3 F1500",
-        "G1 X100 Y70 Z0.3 F1500",
-        "G1 X100 Y75 Z0.3 F1500",
-        "G1 X0 Y75 Z0.3 F1500",
-        "G1 X0 Y80 Z0.3 F1500",
-        "G1 X100 Y80 Z0.3 F1500",
-        "G1 X100 Y85 Z0.3 F1500",
-        "G1 X0 Y85 Z0.3 F1500",
-        "G1 X0 Y90 Z0.3 F1500",
-        "G1 X100 Y90 Z0.3 F1500",
-        "G1 X100 Y95 Z0.3 F1500",
-        "G1 X0 Y95 Z0.3 F1500",
-        "G1 X0 Y100 Z0.3 F1500",
-        "G1 X100 Y100 Z0.3 F1500",
-
-        // Finish at center
-        "G1 X50 Y50 Z0.3 F1500"
-        };
+    {
+        "G1 X50 Y50 Z0.3 F1500",  // Start at center
+        "G1 X0 Y0 Z0.3 F1500",    // Bottom-left corner
+        "G1 X100 Y0 Z0.3 F1500",  // Bottom-right corner
+        "G1 X100 Y100 Z0.3 F1500",// Top-right corner
+        "G1 X0 Y100 Z0.3 F1500",  // Top-left corner
+        "G1 X50 Y50 Z0.3 F1500"   // Back to center
+    };
 
     // Repeat 3 times
     private string[] gcodeLines;
+
+    private int currentLine = 0;
+    private Vector3 targetPos;
+    private float moveSpeed = 1f; // Unity units per second
+
+    // Original G-code X max value (used for scaling)
+    private float gcodeXMax = 100f;
+
+    private float moveStartTime;
+    private float moveDuration;
 
     void Awake()
     {
@@ -80,13 +50,6 @@ public class GCodePlayer_X : MonoBehaviour
         }
     }
 
-    private int currentLine = 0;
-    private Vector3 targetPos;
-    private float moveSpeed = 1f;
-
-    // Original G-code X max value (used for scaling)
-    private float gcodeXMax = 100f;
-
     void Start()
     {
         toolHead = transform;
@@ -96,9 +59,11 @@ public class GCodePlayer_X : MonoBehaviour
 
     void Update()
     {
+        // Move only in X
         toolHead.position = Vector3.MoveTowards(toolHead.position, targetPos, moveSpeed * Time.deltaTime);
 
-        if (Vector3.Distance(toolHead.position, targetPos) < 0.001f && currentLine < gcodeLines.Length - 1)
+        // If move duration elapsed, go to next line
+        if (Time.time - moveStartTime >= moveDuration && currentLine < gcodeLines.Length - 1)
         {
             currentLine++;
             ParseLine(gcodeLines[currentLine]);
@@ -109,23 +74,44 @@ public class GCodePlayer_X : MonoBehaviour
     {
         string[] parts = line.Split(' ');
 
-        // Keep Y/Z fixed
+        // Current position as starting point
         float x = toolHead.position.x;
-        float y = toolHead.position.z;
-        float z = toolHead.position.y;
+        float y = toolHead.position.z; // Keep Z fixed
+        float z = toolHead.position.y; // Vertical stays the same
+
+        float feedRate = 1500f; // Default F if none provided
+        float oldX = x;
 
         foreach (string part in parts)
         {
             if (part.StartsWith("X"))
             {
                 float originalX = float.Parse(part.Substring(1));
-                // Scale X from G-code range (0 → gcodeXMax) to (0 → maxXDistance)
                 x = origin.x + (originalX / gcodeXMax) * maxXDistance;
             }
 
-            if (part.StartsWith("F")) moveSpeed = float.Parse(part.Substring(1)) / 1000f;
+            if (part.StartsWith("F"))
+            {
+                feedRate = float.Parse(part.Substring(1));
+            }
         }
 
+        // Convert feedrate to Unity units/sec and slow down by factor 0.5
+        moveSpeed = (feedRate / 1000f) * 0.5f;
+
+        // Calculate distance to move in X
+        float distance = Mathf.Abs(x - oldX);
+
+        // Calculate duration to move that distance
+        moveDuration = distance / moveSpeed;
+
+        // If distance is zero, still pause to simulate move
+        if (distance == 0f)
+        {
+            moveDuration = 0.1f; // minimal pause
+        }
+
+        moveStartTime = Time.time;
         targetPos = new Vector3(x, z, y);
     }
 }
