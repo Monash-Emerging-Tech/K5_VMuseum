@@ -1,121 +1,161 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class GCodePlayer_XYZ : MonoBehaviour
+public class NewGCodeReader : MonoBehaviour
 {
-    private Transform toolHead;
+    [Header("Control Options")]
+    public bool playAutomatically = true;
+    public bool loopPath = false;
+    public float pauseBetweenMoves = 0f;
+
+    [Header("Scaling Distances")]
     public Vector3 originOffset = Vector3.zero;
-
-    [Tooltip("Maximum distance along X the part can move from its starting position")]
-    public float maxXDistance = 5f; // Unity units
-
-    [Tooltip("Maximum distance along Y the part can move from its starting position")]
+    public float maxXDistance = 5f;
     public float maxYDistance = 5f;
-
-    [Tooltip("Maximum distance along Z the part can move vertically")]
     public float maxZDistance = 5f;
 
-    [Tooltip("Speed multiplier for X axis")]
+    [Header("Axis Speeds (units per second)")]
     public float speedXMultiplier = 1f;
-
-    [Tooltip("Speed multiplier for Y axis")]
     public float speedYMultiplier = 1f;
-
-    [Tooltip("Speed multiplier for Z axis")]
     public float speedZMultiplier = 1f;
 
-    private Vector3 origin;
-
-    // Example G-code: moves around a square
+    [Header("Test GCode")]
+    [System.NonSerialized] // Prevent Unity from overriding this in the Inspector
     public string[] originalGCode = new string[]
-    {
-        "G1 X0 Y0 Z0 F1500",    // Start bottom-left
-        "G1 X100 Y0 Z0 F1500",  // Bottom-right
-        "G1 X100 Y100 Z0 F1500",// Top-right
-        "G1 X0 Y100 Z0 F1500",  // Top-left
-        "G1 X0 Y0 Z0 F1500"     // Back to start
+       {
+         "G1 X0 Y0 Z0 F1500",
+         "G1 X100 Y0 Z0 F1500",
+         "G1 X100 Y100 Z0 F1500",
+         "G1 X0 Y100 Z0 F1500",
+         "G1 X0 Y0 Z0 F1500",
+         "G1 X75 Y50 Z0 F1500",
+         "G1 X74.8 Y54.36 Z0 F1500",
+         "G1 X73.5 Y58.30 Z0 F1500",
+         "G1 X71.2 Y61.80 Z0 F1500",
+         "G1 X68.0 Y64.68 Z0 F1500",
+         "G1 X64.0 Y66.83 Z0 F1500",
+         "G1 X59.5 Y68.16 Z0 F1500",
+         "G1 X54.7 Y68.57 Z0 F1500",
+         "G1 X50.0 Y68.00 Z0 F1500",
+         "G1 X45.3 Y68.57 Z0 F1500",
+         "G1 X40.5 Y68.16 Z0 F1500",
+         "G1 X35.9 Y66.83 Z0 F1500",
+         "G1 X31.9 Y64.68 Z0 F1500",
+         "G1 X28.7 Y61.80 Z0 F1500",
+         "G1 X26.4 Y58.30 Z0 F1500",
+         "G1 X25.2 Y54.36 Z0 F1500",
+         "G1 X25.0 Y50.0 Z0 F1500",
+         "G1 X25.2 Y45.64 Z0 F1500",
+         "G1 X26.4 Y41.70 Z0 F1500",
+         "G1 X28.7 Y38.20 Z0 F1500",
+         "G1 X31.9 Y35.32 Z0 F1500",
+         "G1 X35.9 Y33.17 Z0 F1500",
+         "G1 X40.5 Y31.84 Z0 F1500",
+         "G1 X45.3 Y31.43 Z0 F1500",
+         "G1 X50.0 Y32.00 Z0 F1500",
+         "G1 X54.7 Y31.43 Z0 F1500",
+         "G1 X59.5 Y31.84 Z0 F1500",
+         "G1 X64.0 Y33.17 Z0 F1500",
+         "G1 X68.0 Y35.32 Z0 F1500",
+         "G1 X71.2 Y38.20 Z0 F1500",
+         "G1 X73.5 Y41.70 Z0 F1500",
+         "G1 X74.8 Y45.64 Z0 F1500",
+         "G1 X75 Y50 Z0 F1500"
     };
 
+    private Vector3 origin;
     private List<Vector3> positionsToMove = new List<Vector3>();
-    private List<float> speeds = new List<float>();
     private int currentIndex = 0;
+    private float moveTime = 0f;
+    private float elapsed = 0f;
+    private Vector3 startPos;
+    private Vector3 targetPos;
+    private float waitTimer = 0f;
 
     private float gcodeXMax = 100f;
     private float gcodeYMax = 100f;
     private float gcodeZMax = 100f;
 
-    void Awake()
+    void Start()
     {
-        toolHead = transform;
-        origin = toolHead.position + originOffset;
+        origin = transform.position + originOffset;
         ParseGCode();
+
+        if (playAutomatically && positionsToMove.Count > 0)
+            StartNextMove();
     }
 
     void Update()
     {
+        if (currentIndex >= positionsToMove.Count)
+        {
+            if (loopPath && positionsToMove.Count > 0)
+            {
+                currentIndex = 0;
+                StartNextMove();
+            }
+            return;
+        }
+
+        if (waitTimer > 0f)
+        {
+            waitTimer -= Time.deltaTime;
+            return;
+        }
+
+        elapsed += Time.deltaTime;
+        float t = Mathf.Clamp01(elapsed / moveTime);
+        transform.position = Vector3.Lerp(startPos, targetPos, t);
+
+        if (t >= 1f)
+            StartNextMove();
+    }
+
+    void StartNextMove()
+    {
         if (currentIndex >= positionsToMove.Count) return;
 
-        Vector3 target = positionsToMove[currentIndex];
-        float speed = speeds[currentIndex];
+        startPos = transform.position;
+        targetPos = positionsToMove[currentIndex];
 
-        // Move toolhead toward current target
-        toolHead.position = Vector3.MoveTowards(toolHead.position, target, speed * Time.deltaTime);
+        Vector3 delta = targetPos - startPos;
+        float tx = Mathf.Abs(delta.x) / speedXMultiplier;
+        float ty = Mathf.Abs(delta.y) / speedYMultiplier;
+        float tz = Mathf.Abs(delta.z) / speedZMultiplier;
 
-        // Move to next step when reached
-        if (Vector3.Distance(toolHead.position, target) < 0.001f)
-        {
-            currentIndex++;
-        }
+        moveTime = Mathf.Max(tx, ty, tz);
+        if (moveTime <= 0f) moveTime = 0.1f;
+
+        elapsed = 0f;
+        currentIndex++;
+
+        if (pauseBetweenMoves > 0f)
+            waitTimer = pauseBetweenMoves;
     }
 
     void ParseGCode()
     {
         positionsToMove.Clear();
-        speeds.Clear();
-
-        Vector3 lastPos = toolHead.position;
 
         foreach (string line in originalGCode)
         {
             string[] parts = line.Split(' ');
 
-            float x = lastPos.x;
-            float y = lastPos.z; // Unity Z-axis = G-code Y
-            float z = lastPos.y; // Unity Y-axis = G-code Z
-            float feedRate = 1500f;
+            float x = origin.x;
+            float y = origin.y;
+            float z = origin.z;
 
             foreach (string part in parts)
             {
                 if (part.StartsWith("X"))
                     x = origin.x + (float.Parse(part.Substring(1)) / gcodeXMax) * maxXDistance;
                 if (part.StartsWith("Y"))
-                    y = origin.z + (float.Parse(part.Substring(1)) / gcodeYMax) * maxYDistance;
+                    z = origin.z + (float.Parse(part.Substring(1)) / gcodeYMax) * maxYDistance;
                 if (part.StartsWith("Z"))
-                    z = origin.y + (float.Parse(part.Substring(1)) / gcodeZMax) * maxZDistance;
-                if (part.StartsWith("F"))
-                    feedRate = float.Parse(part.Substring(1));
+                    y = origin.y + (float.Parse(part.Substring(1)) / gcodeZMax) * maxZDistance;
             }
 
-            // Sequentially move each axis if it changed
-            if (Mathf.Abs(x - lastPos.x) > 0.001f)
-            {
-                positionsToMove.Add(new Vector3(x, lastPos.y, lastPos.z));
-                speeds.Add((feedRate / 1000f) * speedXMultiplier);
-                lastPos.x = x;
-            }
-            if (Mathf.Abs(y - lastPos.z) > 0.001f)
-            {
-                positionsToMove.Add(new Vector3(lastPos.x, lastPos.y, y));
-                speeds.Add((feedRate / 1000f) * speedYMultiplier);
-                lastPos.z = y;
-            }
-            if (Mathf.Abs(z - lastPos.y) > 0.001f)
-            {
-                positionsToMove.Add(new Vector3(lastPos.x, z, lastPos.z));
-                speeds.Add((feedRate / 1000f) * speedZMultiplier);
-                lastPos.y = z;
-            }
+            positionsToMove.Add(new Vector3(x, y, z));
         }
     }
 }
