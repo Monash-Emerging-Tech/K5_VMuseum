@@ -6,7 +6,7 @@ public class NewGCodeReader : MonoBehaviour
     [Header("Control Options")]
     public bool playAutomatically = true;
     public bool loopPath = false;
-    public float pauseBetweenMoves = 0f;
+    public float pauseBetweenMoves = 0.5f;
 
     [Header("Scaling Distances")]
     public Vector3 originOffset = Vector3.zero;
@@ -19,55 +19,45 @@ public class NewGCodeReader : MonoBehaviour
     public float speedYMultiplier = 1f;
     public float speedZMultiplier = 1f;
 
+    [Header("Axis Movement Enabled")]
+    public bool moveX = true;
+    public bool moveY = true;
+    public bool moveZ = true;
+
     [Header("Test GCode")]
-    [System.NonSerialized] // Prevent Unity from overriding this in the Inspector
+    [System.NonSerialized]
     public string[] originalGCode = new string[]
-       {
-         "G1 X0 Y0 Z0 F1500",
-         "G1 X100 Y0 Z0 F1500",
-         "G1 X100 Y100 Z0 F1500",
-         "G1 X0 Y100 Z0 F1500",
-         "G1 X0 Y0 Z0 F1500",
-         "G1 X75 Y50 Z0 F1500",
-         "G1 X74.8 Y54.36 Z0 F1500",
-         "G1 X73.5 Y58.30 Z0 F1500",
-         "G1 X71.2 Y61.80 Z0 F1500",
-         "G1 X68.0 Y64.68 Z0 F1500",
-         "G1 X64.0 Y66.83 Z0 F1500",
-         "G1 X59.5 Y68.16 Z0 F1500",
-         "G1 X54.7 Y68.57 Z0 F1500",
-         "G1 X50.0 Y68.00 Z0 F1500",
-         "G1 X45.3 Y68.57 Z0 F1500",
-         "G1 X40.5 Y68.16 Z0 F1500",
-         "G1 X35.9 Y66.83 Z0 F1500",
-         "G1 X31.9 Y64.68 Z0 F1500",
-         "G1 X28.7 Y61.80 Z0 F1500",
-         "G1 X26.4 Y58.30 Z0 F1500",
-         "G1 X25.2 Y54.36 Z0 F1500",
-         "G1 X25.0 Y50.0 Z0 F1500",
-         "G1 X25.2 Y45.64 Z0 F1500",
-         "G1 X26.4 Y41.70 Z0 F1500",
-         "G1 X28.7 Y38.20 Z0 F1500",
-         "G1 X31.9 Y35.32 Z0 F1500",
-         "G1 X35.9 Y33.17 Z0 F1500",
-         "G1 X40.5 Y31.84 Z0 F1500",
-         "G1 X45.3 Y31.43 Z0 F1500",
-         "G1 X50.0 Y32.00 Z0 F1500",
-         "G1 X54.7 Y31.43 Z0 F1500",
-         "G1 X59.5 Y31.84 Z0 F1500",
-         "G1 X64.0 Y33.17 Z0 F1500",
-         "G1 X68.0 Y35.32 Z0 F1500",
-         "G1 X71.2 Y38.20 Z0 F1500",
-         "G1 X73.5 Y41.70 Z0 F1500",
-         "G1 X74.8 Y45.64 Z0 F1500",
-         "G1 X75 Y50 Z0 F1500"
+    {
+        "G1 X0 Y0 Z0 F1500",
+        "G1 X100 Y0 Z0 F1500",
+        "G1 X100 Y100 Z0 F1500",
+        "G1 X0 Y100 Z0 F1500",
+        "G1 X0 Y0 Z0 F1500",
+        "G1 X75 Y50 Z0 F1500",
+        "G1 X0 Y0 Z0 F1500",
+        "G1 X100 Y0 Z0 F1500",
+        "G1 X100 Y100 Z0 F1500",
+        "G1 X0 Y100 Z0 F1500",
+        "G1 X0 Y0 Z0 F1500",
+        "G1 X75 Y50 Z0 F1500",
+        "G1 X0 Y0 Z0 F1500",
+        "G1 X100 Y0 Z0 F1500",
+        "G1 X100 Y100 Z0 F1500",
+        "G1 X0 Y100 Z0 F1500",
+        "G1 X0 Y0 Z0 F1500",
+        "G1 X75 Y50 Z0 F1500",
+        "G1 X0 Y0 Z0 F1500",
+        "G1 X100 Y0 Z0 F1500",
+        "G1 X100 Y100 Z0 F1500",
+        "G1 X0 Y100 Z0 F1500",
+        "G1 X0 Y0 Z0 F1500",
+        "G1 X75 Y50 Z0 F1500",
+        "G1 X0 Y0 Z0 F1500",
     };
 
     private Vector3 origin;
     private List<Vector3> positionsToMove = new List<Vector3>();
     private int currentIndex = 0;
-    private float moveTime = 0f;
-    private float elapsed = 0f;
     private Vector3 startPos;
     private Vector3 targetPos;
     private float waitTimer = 0f;
@@ -75,6 +65,10 @@ public class NewGCodeReader : MonoBehaviour
     private float gcodeXMax = 100f;
     private float gcodeYMax = 100f;
     private float gcodeZMax = 100f;
+
+    // **Shared moveTime for all objects**
+    public static float moveTime = 0.1f;
+    private float elapsed = 0f;
 
     void Start()
     {
@@ -87,50 +81,64 @@ public class NewGCodeReader : MonoBehaviour
 
     void Update()
     {
+        if (currentIndex > positionsToMove.Count) return;
+
+        // Pause timer
+        if (waitTimer > 0f)
+        {
+            waitTimer -= Time.deltaTime;
+            if (waitTimer <= 0f)
+                StartNextMove();
+            return;
+        }
+
+        // Move towards target using shared moveTime
+        elapsed += Time.deltaTime;
+        float t = Mathf.Clamp01(elapsed / moveTime);
+
+        Vector3 nextPos = Vector3.Lerp(startPos, targetPos, t);
+
+        // Apply axis checkboxes
+        if (!moveX) nextPos.x = transform.position.x;
+        if (!moveY) nextPos.y = transform.position.y;
+        if (!moveZ) nextPos.z = transform.position.z;
+
+        transform.position = nextPos;
+
+        if (t >= 1f)
+        {
+            if (pauseBetweenMoves > 0f)
+                waitTimer = pauseBetweenMoves;
+            else
+                StartNextMove();
+        }
+    }
+
+    void StartNextMove()
+    {
         if (currentIndex >= positionsToMove.Count)
         {
             if (loopPath && positionsToMove.Count > 0)
             {
                 currentIndex = 0;
-                StartNextMove();
             }
-            return;
+            else
+                return;
         }
-
-        if (waitTimer > 0f)
-        {
-            waitTimer -= Time.deltaTime;
-            return;
-        }
-
-        elapsed += Time.deltaTime;
-        float t = Mathf.Clamp01(elapsed / moveTime);
-        transform.position = Vector3.Lerp(startPos, targetPos, t);
-
-        if (t >= 1f)
-            StartNextMove();
-    }
-
-    void StartNextMove()
-    {
-        if (currentIndex >= positionsToMove.Count) return;
 
         startPos = transform.position;
         targetPos = positionsToMove[currentIndex];
 
+        // **Calculate moveTime based on all axes**
         Vector3 delta = targetPos - startPos;
-        float tx = Mathf.Abs(delta.x) / speedXMultiplier;
-        float ty = Mathf.Abs(delta.y) / speedYMultiplier;
-        float tz = Mathf.Abs(delta.z) / speedZMultiplier;
+        float dx = Mathf.Abs(delta.x) / speedXMultiplier;
+        float dy = Mathf.Abs(delta.y) / speedYMultiplier;
+        float dz = Mathf.Abs(delta.z) / speedZMultiplier;
 
-        moveTime = Mathf.Max(tx, ty, tz);
-        if (moveTime <= 0f) moveTime = 0.1f;
+        moveTime = Mathf.Max(dx, dy, dz, 0.1f); // shared across all objects
 
         elapsed = 0f;
         currentIndex++;
-
-        if (pauseBetweenMoves > 0f)
-            waitTimer = pauseBetweenMoves;
     }
 
     void ParseGCode()
@@ -142,8 +150,8 @@ public class NewGCodeReader : MonoBehaviour
             string[] parts = line.Split(' ');
 
             float x = origin.x;
-            float y = origin.y;
-            float z = origin.z;
+            float y = origin.y; // Unity Y = GCode Z
+            float z = origin.z; // Unity Z = GCode Y
 
             foreach (string part in parts)
             {
