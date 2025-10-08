@@ -28,83 +28,86 @@ public class NewGCodeReader : MonoBehaviour
     [System.NonSerialized]
     public string[] originalGCode = new string[]
     {
-        "G1 X0 Y0 Z0 F1500",
-        "G1 X100 Y0 Z1 F1500",
-        "G1 X100 Y100 Z2 F1500",
-        "G1 X0 Y100 Z3 F1500",
-        "G1 X0 Y0 Z4 F1500",
-        "G1 X75 Y50 Z5 F1500",
-        "G1 X0 Y0 Z6 F1500",
-        "G1 X100 Y0 Z7 F1500",
-        "G1 X100 Y100 Z8 F1500",
-        "G1 X0 Y100 Z9 F1500",
-        "G1 X0 Y0 Z10 F1500",
-        "G1 X75 Y50 Z11 F1500",
-        "G1 X0 Y0 Z12 F1500",
-        "G1 X100 Y0 Z45 F1500",
-        "G1 X100 Y100 Z0 F1500",
-        "G1 X0 Y100 Z20 F1500",
-        "G1 X0 Y0 Z50 F1500",
-        "G1 X75 Y50 Z0 F1500",
-        "G1 X0 Y0 Z0 F1500",
-        "G1 X100 Y0 Z0 F1500",
-        "G1 X100 Y100 Z0 F1500",
-        "G1 X0 Y100 Z0 F1500",
-        "G1 X0 Y0 Z0 F1500",
-        "G1 X75 Y50 Z0 F1500",
-        "G1 X0 Y0 Z0 F1500",
-        "G1 X0 Y0 Z0 F1500",
-        "G1 X10 Y0 Z0 F1500",
-        "G1 X20 Y0 Z0 F1500",
-        "G1 X30 Y0 Z0 F1500",
-        "G1 X40 Y0 Z0 F1500",
-        "G1 X50 Y0 Z0 F1500",
-        "G1 X50 Y10 Z0 F1500",
-        "G1 X40 Y10 Z0 F1500",
-        "G1 X30 Y10 Z0 F1500",
-        "G1 X20 Y10 Z0 F1500",
-        "G1 X10 Y10 Z0 F1500",
-        "G1 X0 Y10 Z0 F1500",
-        "G1 X0 Y20 Z0 F1500",
-        "G1 X10 Y20 Z0 F1500",
-        "G1 X20 Y20 Z0 F1500",
-        "G1 X30 Y20 Z0 F1500",
-        "G1 X40 Y20 Z0 F1500",
-        "G1 X50 Y20 Z0 F1500",
-        "G1 X50 Y30 Z0 F1500",
-        "G1 X40 Y30 Z0 F1500",
-        "G1 X30 Y30 Z0 F1500",
-        "G1 X20 Y30 Z0 F1500",
-        "G1 X10 Y30 Z0 F1500",
-        "G1 X0 Y30 Z0 F1500",
-        "G1 X0 Y40 Z0 F1500",
-        "G1 X10 Y40 Z0 F1500",
-        "G1 X20 Y40 Z0 F1500",
-        "G1 X30 Y40 Z0 F1500",
-        "G1 X40 Y40 Z0 F1500",
-        "G1 X50 Y40 Z0 F1500",
-        "G1 X50 Y50 Z0 F1500",
-        "G1 X40 Y50 Z0 F1500",
-        "G1 X30 Y50 Z0 F1500",
-        "G1 X20 Y50 Z0 F1500",
-        "G1 X10 Y50 Z0 F1500",
-        "G1 X0 Y50 Z0 F1500",
-        "G1 X0 Y60 Z0 F1500",
-        "G1 X10 Y60 Z0 F1500",
-        "G1 X20 Y60 Z0 F1500",
-        "G1 X30 Y60 Z0 F1500",
-        "G1 X40 Y60 Z0 F1500",
-        "G1 X50 Y60 Z0 F1500",
-        "G1 X50 Y70 Z0 F1500",
-        "G1 X40 Y70 Z0 F1500",
-        "G1 X30 Y70 Z0 F1500",
-        "G1 X20 Y70 Z0 F1500",
-        "G1 X10 Y70 Z0 F1500",
-        "G1 X0 Y70 Z0 F1500",
-        "G1 X0 Y80 Z0 F1500",
-        "G1 X50 Y80 Z0 F1500",
-        "G1 X50 Y90 Z0 F1500",
-        "G1 X0 Y90 Z0 F1500"
+        "G1 X0 Y0 Z0",
+        "G1 X100 Y0 Z0",
+        "G1 X100 Y100 Z0",
+        "G1 X0 Y100 Z0",
+        "G1 X0 Y0 Z0",
+        "G1 X0 Y100 Z0",
+        "G1 X0 Y0 Z0",
+
+        "G1 X0 Y0 Z0.2",
+        "G1 X100 Y0 Z0.2",
+        "G1 X100 Y100 Z0.2",
+        "G1 X0 Y100 Z0.2",
+        "G1 X0 Y0 Z0.2",
+        "G1 X0 Y100 Z0.2",
+        "G1 X0 Y0 Z0.2",
+
+        "G1 X0 Y0 Z0.4",
+        "G1 X100 Y0 Z0.4",
+        "G1 X100 Y100 Z0.4",
+        "G1 X0 Y100 Z0.4",
+        "G1 X0 Y0 Z0.4",
+        "G1 X0 Y100 Z0.4",
+        "G1 X0 Y0 Z0.4",
+
+        "G1 X0 Y0 Z0.6",
+        "G1 X100 Y0 Z0.6",
+        "G1 X100 Y100 Z0.6",
+        "G1 X0 Y100 Z0.6",
+        "G1 X0 Y0 Z0.6",
+        "G1 X0 Y100 Z0.6",
+        "G1 X0 Y0 Z0.6",
+
+        "G1 X0 Y0 Z0.8",
+        "G1 X100 Y0 Z0.8",
+        "G1 X100 Y100 Z0.8",
+        "G1 X0 Y100 Z0.8",
+        "G1 X0 Y0 Z0.8",
+        "G1 X0 Y100 Z0.8",
+        "G1 X0 Y0 Z0.8",
+
+        "G1 X0 Y0 Z1",
+        "G1 X100 Y0 Z1",
+        "G1 X100 Y100 Z1",
+        "G1 X0 Y100 Z1",
+        "G1 X0 Y0 Z1",
+        "G1 X0 Y100 Z1",
+        "G1 X0 Y0 Z1",
+
+        "G1 X0 Y0 Z1.2",
+        "G1 X100 Y0 Z1.2",
+        "G1 X100 Y100 Z1.2",
+        "G1 X0 Y100 Z1.2",
+        "G1 X0 Y0 Z1.2",
+        "G1 X0 Y100 Z1.2",
+        "G1 X0 Y0 Z1.2",
+
+        "G1 X0 Y0 Z1.4",
+        "G1 X100 Y0 Z1.4",
+        "G1 X100 Y100 Z1.4",
+        "G1 X0 Y100 Z1.4",
+        "G1 X0 Y0 Z1.4",
+        "G1 X0 Y100 Z1.4",
+        "G1 X0 Y0 Z1.4",
+
+        "G1 X0 Y0 Z1.6",
+        "G1 X100 Y0 Z1.6",
+        "G1 X100 Y100 Z1.6",
+        "G1 X0 Y100 Z1.6",
+        "G1 X0 Y0 Z1.6",
+        "G1 X0 Y100 Z1.6",
+        "G1 X0 Y0 Z1.6",
+
+        "G1 X0 Y0 Z1.8",
+        "G1 X100 Y0 Z1.8",
+        "G1 X100 Y100 Z1.8",
+        "G1 X0 Y100 Z1.8",
+        "G1 X0 Y0 Z1.8",
+        "G1 X0 Y100 Z1.8",
+        "G1 X0 Y0 Z1.8",
+
     };
 
     private Vector3 origin;
@@ -118,7 +121,6 @@ public class NewGCodeReader : MonoBehaviour
     private float gcodeYMax = 100f;
     private float gcodeZMax = 100f;
 
-    // **Shared moveTime for all objects**
     public static float moveTime = 0.1f;
     private float elapsed = 0f;
 
@@ -135,7 +137,6 @@ public class NewGCodeReader : MonoBehaviour
     {
         if (currentIndex > positionsToMove.Count) return;
 
-        // Pause timer
         if (waitTimer > 0f)
         {
             waitTimer -= Time.deltaTime;
@@ -144,13 +145,11 @@ public class NewGCodeReader : MonoBehaviour
             return;
         }
 
-        // Move towards target using shared moveTime
         elapsed += Time.deltaTime;
         float t = Mathf.Clamp01(elapsed / moveTime);
 
         Vector3 nextPos = Vector3.Lerp(startPos, targetPos, t);
 
-        // Apply axis checkboxes
         if (!moveX) nextPos.x = transform.position.x;
         if (!moveY) nextPos.y = transform.position.y;
         if (!moveZ) nextPos.z = transform.position.z;
@@ -181,14 +180,13 @@ public class NewGCodeReader : MonoBehaviour
         startPos = transform.position;
         targetPos = positionsToMove[currentIndex];
 
-        // **Calculate moveTime based on all axes**
         Vector3 delta = targetPos - startPos;
         float dx = Mathf.Abs(delta.x) / speedXMultiplier;
         float dy = Mathf.Abs(delta.y) / speedYMultiplier;
         float dz = Mathf.Abs(delta.z) / speedZMultiplier;
 
-        moveTime = Mathf.Max(dx, dy, dz, 0.1f); // shared across all objects
-
+        // Shared moveTime
+        moveTime = Mathf.Max(dx, dy, dz, 0.1f);
         elapsed = 0f;
         currentIndex++;
     }
@@ -196,14 +194,15 @@ public class NewGCodeReader : MonoBehaviour
     void ParseGCode()
     {
         positionsToMove.Clear();
+        Vector3 lastPos = transform.position;
 
         foreach (string line in originalGCode)
         {
             string[] parts = line.Split(' ');
 
-            float x = origin.x;
-            float y = origin.y; // Unity Y = GCode Z
-            float z = origin.z; // Unity Z = GCode Y
+            float x = lastPos.x;
+            float y = lastPos.y; // Unity Y = GCode Z
+            float z = lastPos.z; // Unity Z = GCode Y
 
             foreach (string part in parts)
             {
@@ -215,7 +214,9 @@ public class NewGCodeReader : MonoBehaviour
                     y = origin.y + (float.Parse(part.Substring(1)) / gcodeZMax) * maxZDistance;
             }
 
-            positionsToMove.Add(new Vector3(x, y, z));
+            Vector3 nextPos = new Vector3(x, y, z);
+            positionsToMove.Add(nextPos);
+            lastPos = nextPos; // remember for next line to avoid teleport
         }
     }
 }
